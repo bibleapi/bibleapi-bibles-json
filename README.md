@@ -1,6 +1,6 @@
-bibleapi-bibles-json
+Bible API JSON Bibles
 ==========
-Bible translations in JSON format.
+Bible translations in JSON format
 
 ## Translations
 
