@@ -1,5 +1,7 @@
 Bible API JSON Bibles
-==========
+
+[![Build Status](https://travis-ci.org/bibleapi/bibleapi-bibles-json.svg?branch=master)](https://travis-ci.org/bibleapi/bibleapi-bibles-json)
+
 Bible translations in JSON format
 
 ## Translations
