@@ -11,5 +11,6 @@ Bible translations in JSON format
 
 ### Russian
 
-- Russian Synodal Translation (RST)
 - Contemporary Russian Translation of the Bible (CRTB)
+- The New Russian Translation (NRT)
+- Russian Synodal Translation (RST)
