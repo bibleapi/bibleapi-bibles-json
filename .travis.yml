@@ -1,11 +1,7 @@
-addons:
-  apt:
-    sources:
-      - mongodb-upstart
-      - mongodb-3.4.10
-    packages:
-      - mongodb-org-server
-      - mongodb-org-shell
-      - mongodb-org-tools
 before_script:
+  - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+  - echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+  - sudo apt-get update
+  - sudo apt-get install -y mongodb-org
+  - mongod --version
   - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --drop --file asv.json
