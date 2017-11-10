@@ -1,11 +1,15 @@
-language: node_js
-node_js:
-  - "6"
+services:
+  - mongodb
+
 addons:
   apt:
     sources:
       - mongodb-3.4-precise
     packages:
+      - mongodb-org-server
+      - mongodb-org-shell
       - mongodb-org-tools
-before_script:
+
+script:
+  - sleep 15
   - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --drop --file crtb.json
