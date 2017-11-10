@@ -6,7 +6,6 @@ addons:
     sources:
       - mongodb-3.4-precise
     packages:
-      - mongodb-org-server
       - mongodb-org-shell
       - mongodb-org-tools
 
