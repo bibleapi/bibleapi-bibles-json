@@ -1,0 +1,4 @@
+services:
+  - mongodb
+before_script:
+  - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --drop --file asv.json
