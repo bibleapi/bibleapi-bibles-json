@@ -4,6 +4,14 @@
 
 Bible translations in JSON format. All Bible translations are ready to import into `MongoDB`.
 
+## Import
+
+Import Bible traslation into `MongoDB` using `mongoimport` tool:
+
+```bash
+mongoimport --host localhost:27017 -u admin -p 'password' --db bibleapi --collection bible --drop --file asv.json
+```
+
 ## Translations
 
 ### English
@@ -16,11 +24,3 @@ Bible translations in JSON format. All Bible translations are ready to import in
 - Contemporary Russian Translation of the Bible (CRTB)
 - The New Russian Translation (NRT)
 - Russian Synodal Translation (RST)
-
-### MongoDB
-
-Import Bible traslation into `MongoDB` using `mongoimport` tool:
-
-```bash
-mongoimport --host localhost:27017 -u admin -p 'password' --db bibleapi --collection bible --drop --file asv.json
-```
