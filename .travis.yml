@@ -9,9 +9,14 @@ addons:
       - mongodb-org-shell
       - mongodb-org-tools
 
-script:
-  - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --drop --file asv.json
-  - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --file crtb.json
-  - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --file kjv.json
-  - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --file nrt.json
-  - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --file rst.json
+jobs:
+  include:
+    - stage: Bible API MongoDB QA
+      script: deploying to qa...
+    - stage: Bible API MongoDB Production
+      script:
+        - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --drop --file asv.json
+        - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --file crtb.json
+        - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --file kjv.json
+        - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --file nrt.json
+        - mongoimport --host $MONGO_DB_HOST --ssl -u $MONGO_DB_USER -p $MONGO_DB_PASS --authenticationDatabase $MONGO_DB_AUTH_DB --db $MONGO_DB_DATABASE --collection $MONGO_DB_COLLECTION --file rst.json
