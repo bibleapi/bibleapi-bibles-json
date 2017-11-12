@@ -1,8 +1,8 @@
-Bible API JSON Bibles
+# Bible API JSON Bibles
 
 [![Build Status](https://travis-ci.org/bibleapi/bibleapi-bibles-json.svg?branch=master)](https://travis-ci.org/bibleapi/bibleapi-bibles-json)
 
-Bible translations in JSON format
+Bible translations in JSON format. All Bible translations are ready to import into `MongoDB`.
 
 ## Translations
 
@@ -16,3 +16,11 @@ Bible translations in JSON format
 - Contemporary Russian Translation of the Bible (CRTB)
 - The New Russian Translation (NRT)
 - Russian Synodal Translation (RST)
+
+### MongoDB
+
+Import Bible traslation into `MongoDB` using `mongoimport` tool:
+
+```bash
+mongoimport --host localhost:27017 -u admin -p 'password' --db bibleapi --collection bible --drop --file asv.json
+```
